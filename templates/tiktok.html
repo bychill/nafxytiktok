@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="box">
+
+<h2>TikTok Downloader</h2>
+
+<form method="POST">
+<input name="url" placeholder="Paste link TikTok...">
+<button>Generate</button>
+</form>
+
+{% if video_url %}
+<video controls style="width:100%;margin-top:10px;">
+<source src="{{ video_url }}">
+</video>
+
+<a href="{{ video_url }}"><button>Download Video</button></a>
+<a href="{{ music_url }}"><button>Download MP3</button></a>
+{% endif %}
+
+{% if error %}
+<div class="error">{{ error }}</div>
+{% endif %}
+
+</div>
+{% endblock %}
